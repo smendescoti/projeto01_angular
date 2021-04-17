@@ -5,14 +5,23 @@ import { AppComponent } from './app.component';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ConsultaClientesComponent } from './consulta-clientes/consulta-clientes.component';
 
-//importando a biblioteca de rotas do angular..
+// importando a biblioteca de rotas do angular..
 import { Routes, RouterModule } from '@angular/router';
 
-//mapeamento das rotas para acesso aos componentes
-const routes:Routes = [
+// importando as classes para uso da biblioteca de formulários do angular
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// importando a classe que realizar a chamada dos serviços da API
+import { HttpClientModule } from '@angular/common/http';
+
+// importando o componente de paginação
+import { NgxPaginationModule } from 'ngx-pagination';
+
+// mapeamento das rotas para acesso aos componentes
+const routes: Routes = [
   { path : 'cadastro-clientes', component : CadastroClientesComponent },
   { path : 'consulta-clientes', component : ConsultaClientesComponent }
-]
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +31,11 @@ const routes:Routes = [
   ],
   imports: [
     BrowserModule,
-    //registrando o mapeamento de rotas criado no projeto
+    FormsModule, // registrando biblioteca para formulários
+    ReactiveFormsModule, // registrando biblioteca para formulários
+    HttpClientModule, // registrando
+    NgxPaginationModule, // registrando
+    // registrando o mapeamento de rotas criado no projeto
     RouterModule.forRoot(routes)
   ],
   providers: [],
